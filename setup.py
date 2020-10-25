@@ -24,5 +24,8 @@ setuptools.setup(
         "Operating System :: OS Independent",
         # "Topic :: Text Processing"
     ],
+    install_requires=[
+        'scipy>=1.4.1',
+    ],
     python_requires='>=3.5',
 )
