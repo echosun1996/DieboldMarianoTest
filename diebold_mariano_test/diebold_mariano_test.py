@@ -15,6 +15,16 @@ def MSE(T, ori_list, alg_list):
     ret = pow((alg_list[T - 1] - ori_list[T - 1]), 2)
     return ret
 
+def MAPE(T, ori_list, alg_list):
+    """
+    使用 MAPE 作为误差函数。
+    :param T: 在计算 g(e{it}) 时的求和上标T
+    :param ori_list: 原始时间序列
+    :param alg_list: 要比较的的算法
+    :return: 返回 g(e{it})
+    """
+    ret = abs(alg_list[T - 1] - ori_list[T - 1])/ ori_list[T - 1]
+    return ret
 
 def MAE(T, ori_list, alg_list):
     """
@@ -114,7 +124,7 @@ if __name__ == '__main__':
     ori_list = [3, 5, 4, 1]
     a1_list = [2, 3, 4, 2]
     a2_list = [3, 2, 2, 4]
-    d_t_list = cul_d_t(MSE, ori_list, a1_list, a2_list)
+    d_t_list = cul_d_t(MAPE, ori_list, a1_list, a2_list)
     print("Original Data:")
     print(ori_list)
     print("Prediction Algorithm 1:")
